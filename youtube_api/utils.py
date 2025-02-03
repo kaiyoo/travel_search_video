@@ -5,7 +5,9 @@ import re
 
 
 # YouTube API 설정
-API_KEY = 'AIzaSyDgys8eFKRtcGCtyBXgck4J5MosXzeAPgQ'
+with open("config.json", "r") as config:
+    API_KEY = config["YOUTUBE_API_KEY"]
+
 youtube = build('youtube', 'v3', developerKey=API_KEY)
 
 def search_videos_with_captions(query, max_results=50, page_token=None):
